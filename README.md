@@ -7,7 +7,7 @@
 1.下载代码库
 
 ```bash
-git clone https://gitlab.com/xinzhu/xinzhuH5.git
+git clone 
 ```
 
 2.自行安装nodejs，一定要6.0以上版本
@@ -127,60 +127,5 @@ npm start xxx
 1. 一套基于 React.js 的 Web 组件库，比较全，我们自己的组件库里没有的话，可以用这个库里面的组件，比如分页组件。[线上DEMO](http://rsuite.github.io/#/components/buttons?_k=olo6oi)
 
 2. Fetch，功能类似jQuery的$.ajax函数，项目中所有请求通过fetch发送
-
-
-## 部署
-
-1.准备好SSH的终端工具，推荐SecureCrt，登录服务器
-
-2.将项目代码放到 /var/www 目录下，并安装好依赖包
-
-3.修改nginx配置文件，路径为 /etc/nginx/sites-enabled/default，增加一个代理，例如：
-
-![](http://b0.hucdn.com/party/2017/2/upload_d025ec26e7dcb7ac5a50acc3df7a3192_684x125.png)
-
-
-4.改好之后保存，并重启nginx：
-
-```bash
-nginx -s reload
-```
-
-5.在项目目录下，/var/www/xinzhuH5，执行
-
-```bash
-npm run product
-```
-
-生成线上打包版本，然后用 node 的进程管理模块 pm2 启动应用
-
-```bash
-pm2 start app/server.compiled.js --name xinzhuH5
-```
-
-4.如何关掉进程？首先执行
-
-```bash
-pm2 list
-```
-
-可以看到应用列表，每个应用都有对应名字，然后执行
-
-```bash
-pm2 stop name
-```
-
-就可以关掉对应名字的应用。如果要删除某个应用，如下
-
-```bash
-pm2 delete name
-```
-
-就可以删除该应用
-
-5.更新了代码怎么办？首先把服务器上代码更新了，然后再打包就好了。
-
-
-
 
 
